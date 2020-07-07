@@ -26,11 +26,19 @@ namespace QuantityMeasurement1Test
         }
 
         [Test]
-        public void givenSameFeetRefrence_shouldReturnEqual()
+        public void givenSameFeetRefrence_shouldReturnFalse()
         {
             Feet feetOne = new Feet();
             Feet feetTwo = new Feet();
             Assert.IsFalse(feetOne.Equals(feetTwo));
+        }
+
+        [Test]
+        public void givenImproper_TypeObject_Should_Return_False()
+        {
+            Feet valueOne = new Feet();
+            object valueTwo = new object();
+            Assert.IsFalse(valueOne.Equals(valueTwo));
         }
     }
 }
