@@ -17,5 +17,17 @@ namespace QuantityMeasurement1
                 return false;
             }
         }
+
+        public bool ConvertIntoYard(double feet, double yards)
+        {
+            if (feet / 3 == yards)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

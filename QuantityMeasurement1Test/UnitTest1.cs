@@ -7,6 +7,7 @@ namespace QuantityMeasurement1Test
     {
         Conversion conversion;
 
+
         [SetUp]
         public void Setup()
         {
@@ -110,6 +111,14 @@ namespace QuantityMeasurement1Test
         {
             bool result = conversion.ConvertIntoFeet(1, 1);
             Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void given_OneFeetAndOneYard_ShouldReturn_False()
+        {
+            bool result = conversion.ConvertIntoYard(1.0, 1.0);
+            Assert.IsFalse(result);
+
         }
 
 
