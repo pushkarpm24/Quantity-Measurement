@@ -5,9 +5,12 @@ namespace QuantityMeasurement1Test
 {
     public class Tests
     {
+        Conversion conversion;
+
         [SetUp]
         public void Setup()
         {
+            conversion = new Conversion();
         }
 
         [Test]
@@ -86,6 +89,13 @@ namespace QuantityMeasurement1Test
             Inches valueOne = new Inches();
             object valueTwo = new object();
             Assert.IsFalse(valueOne.Equals(valueTwo));
+        }
+
+        [Test]
+        public void  given_OneInchAndTwelveFeet_ShouldReturnTrue()
+        {
+            bool result = conversion.ConvertIntoFeet(1, 12);
+            Assert.IsTrue(result);
         }
     }
 }
