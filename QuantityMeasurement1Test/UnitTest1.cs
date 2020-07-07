@@ -5,12 +5,13 @@ namespace QuantityMeasurement1Test
 {
     public class Tests
     {
+        Comparision compare;
         Conversion conversion;
-
 
         [SetUp]
         public void Setup()
         {
+            compare = new Comparision();
             conversion = new Conversion();
         }
 
@@ -95,28 +96,28 @@ namespace QuantityMeasurement1Test
         [Test]
         public void  given_OneFeetAndTwelveInch_ShouldReturnTrue()
         {
-            bool result = conversion.ConvertIntoFeet(1, 12);
+            bool result = compare.ConvertIntoFeet(1, 12);
             Assert.IsTrue(result);
         }
 
         [Test]
         public void given_ZeroFeetAndZeroInch_ShouldReturnTrue()
         {
-            bool result = conversion.ConvertIntoFeet(0, 0);
+            bool result = compare.ConvertIntoFeet(0, 0);
             Assert.IsTrue(result);
         }
 
         [Test]
         public void given_OneFeetAndOneInch_ShouldReturnFalse()
         {
-            bool result = conversion.ConvertIntoFeet(1, 1);
+            bool result = compare.ConvertIntoFeet(1, 1);
             Assert.IsFalse(result);
         }
 
         [Test]
         public void given_OneFeetAndOneYard_ShouldReturn_False()
         {
-            bool result = conversion.ConvertIntoYard(1.0, 1.0);
+            bool result = compare.ConvertIntoYard(1.0, 1.0);
             Assert.IsFalse(result);
 
         }
@@ -124,11 +125,17 @@ namespace QuantityMeasurement1Test
         [Test]
         public void given_ThreeFeetAndOneYard_ShouldReturn_True()
         {
-            bool result = conversion.ConvertIntoYard(3.0, 1.0);
+            bool result = compare.ConvertIntoYard(3.0, 1.0);
             Assert.IsTrue(result);
 
         }
 
+        [Test]
+        public void Given_OneIncheAndOneYard_ShouldReturn_False()
+        {
+            bool result = compare.ConvertIntoYard(conversion.ConvertFeetsToInches(1.0), 1.0);
+            Assert.IsFalse(result);
+        }
 
     }
 }

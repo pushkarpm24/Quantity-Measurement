@@ -6,28 +6,14 @@ namespace QuantityMeasurement1
 {
     public class Conversion
     {
-        public bool ConvertIntoFeet(int feets, int inches)
+        public double ConvertFeetsToInches(double feet)
         {
-            if(inches/12 == feets)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return feet * 12;
         }
 
-        public bool ConvertIntoYard(double feet, double yards)
+        public double ConvertInchesToFeets(double inches)
         {
-            if (feet / 3 == yards)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return inches / 12;
         }
     }
 }
