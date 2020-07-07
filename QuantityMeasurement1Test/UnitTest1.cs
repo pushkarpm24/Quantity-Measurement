@@ -121,6 +121,14 @@ namespace QuantityMeasurement1Test
 
         }
 
+        [Test]
+        public void given_ThreeFeetAndOneYard_ShouldReturn_True()
+        {
+            bool result = conversion.ConvertIntoYard(3.0, 1.0);
+            Assert.IsTrue(result);
+
+        }
+
 
     }
 }
