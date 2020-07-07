@@ -34,11 +34,19 @@ namespace QuantityMeasurement1Test
         }
 
         [Test]
-        public void givenImproper_TypeObject_Should_Return_False()
+        public void givenImproper_TypeObject_ShouldReturn_False()
         {
             Feet valueOne = new Feet();
             object valueTwo = new object();
             Assert.IsFalse(valueOne.Equals(valueTwo));
+        }
+
+        [Test]
+        public void givenEqualValue_ShuoldReturn_True()
+        {
+            Feet feetOne = new Feet();
+            feetOne.feet = 4.6;
+            Assert.IsTrue(feetOne.Equals(feetOne));
         }
     }
 }

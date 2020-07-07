@@ -6,7 +6,7 @@ namespace QuantityMeasurement1
 {
     public class Feet
     {
-        private double feet;
+        public double feet;
 
         public Feet()
         {
