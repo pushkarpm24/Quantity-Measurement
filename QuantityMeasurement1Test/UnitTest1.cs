@@ -92,9 +92,16 @@ namespace QuantityMeasurement1Test
         }
 
         [Test]
-        public void  given_OneInchAndTwelveFeet_ShouldReturnTrue()
+        public void  given_OneFeetAndTwelveInch_ShouldReturnTrue()
         {
             bool result = conversion.ConvertIntoFeet(1, 12);
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void iven_OneFeetAndTwelveInch_ShouldReturnTrue()
+        {
+            bool result = conversion.ConvertIntoFeet(0, 0);
             Assert.IsTrue(result);
         }
     }
