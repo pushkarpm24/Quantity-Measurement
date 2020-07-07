@@ -13,13 +13,13 @@ namespace QuantityMeasurement1Test
         [Test]
         public void givenZeroFeetAndZeroFeet_shouldReturnEqual()
         {
-            Feet valueOne = new Feet(0.0);
-            Feet valueTwo = new Feet(0.0);
-            Assert.AreEqual(valueOne, valueTwo);
+            Feet feetOne = new Feet(0.0);
+            Feet feetTwo = new Feet(0.0);
+            Assert.IsTrue(feetOne.feet.Equals(feetTwo.feet));
         }
 
         [Test]
-        public void given0FeetAndNullValue_shouldReturnNotEqual()
+        public void givenZeroFeetAndNullValue_shouldReturnNotEqual()
         {
             Feet value = new Feet();
             Assert.IsFalse(value.Equals(null));
@@ -47,6 +47,14 @@ namespace QuantityMeasurement1Test
             Feet feetOne = new Feet();
             feetOne.feet = 4.6;
             Assert.IsTrue(feetOne.Equals(feetOne));
+        }
+
+        [Test]
+        public void givenZeroInchAndZeroInch_shouldReturnEqual()
+        {
+            Inches inchOne = new Inches(0.0);
+            Inches inchTwo = new Inches(0.0);
+            Assert.IsTrue(inchOne.inches.Equals(inchTwo.inches));
         }
     }
 }
