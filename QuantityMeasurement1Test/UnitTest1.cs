@@ -63,5 +63,13 @@ namespace QuantityMeasurement1Test
             Inches inchOne = new Inches();
             Assert.IsFalse(inchOne.Equals(null));
         }
+
+        [Test]
+        public void givenSameInchRefrence_shouldReturnFalse()
+        {
+            Inches inchOne = new Inches();
+            Inches inchTwo = new Inches();
+            Assert.IsFalse(inchOne.Equals(inchTwo));
+        }
     }
 }
