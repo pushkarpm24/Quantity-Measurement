@@ -24,5 +24,13 @@ namespace QuantityMeasurement1Test
             Feet value = new Feet();
             Assert.IsFalse(value.Equals(null));
         }
+
+        [Test]
+        public void givenSameFeetRefrence_shouldReturnEqual()
+        {
+            Feet feetOne = new Feet();
+            Feet feetTwo = new Feet();
+            Assert.IsFalse(feetOne.Equals(feetTwo));
+        }
     }
 }
