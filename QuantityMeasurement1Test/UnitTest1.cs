@@ -79,5 +79,13 @@ namespace QuantityMeasurement1Test
             inchOne.inches = 4.6;
             Assert.IsTrue(inchOne.Equals(inchOne));
         }
+
+        [Test]
+        public void givenImproper_InchesTypeObject_Should_Return_False()
+        {
+            Inches valueOne = new Inches();
+            object valueTwo = new object();
+            Assert.IsFalse(valueOne.Equals(valueTwo));
+        }
     }
 }
