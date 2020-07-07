@@ -7,6 +7,11 @@ namespace QuantityMeasurement1
     public class Feet
     {
         private double feet;
+
+        public Feet()
+        {
+        }
+
         public Feet(double feet)
         {
             this.feet = feet;
