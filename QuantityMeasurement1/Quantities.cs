@@ -33,6 +33,30 @@ namespace QuantityMeasurement1
 
         }
 
+        public static double LiterConversion(double value, string unit)
+        {
+            try
+            {
+                switch (unit)
+                {
+                    case null:
+                        throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_EXCEPTION);                   
+                    case "gallon":
+                        return value * 3.785;
+                    case "ml":
+                        return value / 1000;
+                    case "litre":
+                        return value;
+                    default:
+                        throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.DIFFERENT_VALUE);
+                }
+            }
+            catch (QuantityMeasurementException)
+            {
+                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_EXCEPTION);
+            }
+        }
+        
         public static bool Addition(double valueOne, double valueTwo, double expectedValue)
         {
             double result = valueOne + valueTwo;

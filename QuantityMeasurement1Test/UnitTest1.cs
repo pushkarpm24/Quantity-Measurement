@@ -203,6 +203,27 @@ namespace QuantityMeasurement1Test
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void Given_OneGallonAndThreePointSevenEightLiter_AfterCompare_ShuouldReturnTrue()
+        {
+            if (Quantities.LiterConversion(1, "gallon") == Quantities.LiterConversion(3.785, "liter"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Given_OneLiterAndThousandMl_AfterCompare_ShuouldReturnTrue()
+        {
+            if (Quantities.LiterConversion(1, "litre") == Quantities.LiterConversion(1000, "ml"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
+
+
 
     }
 }
