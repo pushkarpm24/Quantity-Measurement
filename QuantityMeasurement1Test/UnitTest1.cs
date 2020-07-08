@@ -5,18 +5,13 @@ namespace QuantityMeasurement1Test
 {
     public class Tests
     {
-       // Comparision compare;
-        private bool result;
-
-        // Quantities quantity;
-        // Conversion conversion;
-
+       
+         bool result;
+                 
         [SetUp]
         public void Setup()
         {
-           // compare = new Comparision();
-          //  quantity = new Quantities();
-          //  conversion = new Conversion();
+            result = false;
         }
 
         [Test]
@@ -156,11 +151,7 @@ namespace QuantityMeasurement1Test
             if (Quantities.IncheConversion(1.0, "inches") == Quantities.IncheConversion(1.0, "yards"))
             {
                 result = true;
-            }
-            else
-            {
-                result = false;
-            }
+            }            
             Assert.IsFalse(result);
         }
 
@@ -168,6 +159,16 @@ namespace QuantityMeasurement1Test
         public void Given_ThirtySixIncheAndOneYard_ShouldReturn_True()
         {
             if (Quantities.IncheConversion(36.0, "inches") == Quantities.IncheConversion(1.0, "yards"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Given_TwoInchAndFiveCM_Should_Return_True()
+        {
+            if (Quantities.IncheConversion(2, "inches") == Quantities.IncheConversion(5, "cm"))
             {
                 result = true;
             }

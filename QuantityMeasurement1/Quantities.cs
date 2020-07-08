@@ -18,17 +18,29 @@ namespace QuantityMeasurement1
                         return value * 12;
                     case "yards":
                         return value * 36;
+                    case "cm":
+                        return value/2.5;
                     case "inches":
                         return value;
                     default:
                         throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.DIFFERENT_VALUE);
                 }
             }
-            catch (QuantityMeasurementException e)
+            catch (QuantityMeasurementException)
             {
                 throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_EXCEPTION);
             }            
 
+        }
+
+        public static bool Addition(double valueOne, double valueTwo, double expectedValue)
+        {
+            double result = valueOne + valueTwo;
+            if (result == expectedValue)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
