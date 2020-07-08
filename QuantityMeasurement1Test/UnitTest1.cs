@@ -175,5 +175,34 @@ namespace QuantityMeasurement1Test
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void Given_TwoInchAndTwoInch_AfterAdditon_ShouldReturn_FourInch()
+        {
+            result = Quantities.Addition(Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(4, "inches"));
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Given_OneFeetAndTwoInch_AfterAdditon_ShouldReturn_FourteenInch()
+        {
+            result = Quantities.Addition(Quantities.IncheConversion(1, "feet"), Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(14, "inches"));
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Given_OneFeetAndOneFeet_AfterAdditon_ShouldReturn_TwentyFourInch()
+        {
+            result = Quantities.Addition(Quantities.IncheConversion(1, "feet"), Quantities.IncheConversion(1, "feet"), Quantities.IncheConversion(24, "inches"));
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Given_TwoInchAndTwoPointFiveCM_AfterAdditon_ShouldReturn_ThreeInch()
+        {
+            result = Quantities.Addition(Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(2.5, "cm"), Quantities.IncheConversion(3, "inches"));
+            Assert.IsTrue(result);
+        }
+
+
     }
 }
