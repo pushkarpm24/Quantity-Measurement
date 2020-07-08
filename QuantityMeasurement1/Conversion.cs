@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuantityMeasurement1
 {
-    public class Conversion
+  /*  public class Conversion
     {
         public double ConvertFeetsToInches(double feet)
         {
@@ -15,5 +15,10 @@ namespace QuantityMeasurement1
         {
             return inches / 12;
         }
-    }
+
+        public double ConvertYardsToInches(double yards)
+        {
+            return yards * 36;
+        }
+    }*/
 }

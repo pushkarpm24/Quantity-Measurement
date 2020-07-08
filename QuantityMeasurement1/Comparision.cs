@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuantityMeasurement1
 {
-    public class Comparision
+  /*  public class Comparision
     {
         public bool ConvertIntoFeet(int feets, int inches)
         {
@@ -18,9 +18,9 @@ namespace QuantityMeasurement1
             }
         }
 
-        public bool ConvertIntoYard(double feet, double yards)
+        public bool ConvertIntoYard(double feets, double yards)
         {
-            if (feet / 3 == yards)
+            if (feets / 3 == yards)
             {
                 return true;
             }
@@ -29,5 +29,17 @@ namespace QuantityMeasurement1
                 return false;
             }
         }
-    }
+
+        public bool ConvertIntoInch(string unit, double value)
+        {
+            if (Quantities.IncheConversion(36.0, "inches") == Quantities.IncheConversion(1, "yards"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }*/
 }

@@ -5,14 +5,18 @@ namespace QuantityMeasurement1Test
 {
     public class Tests
     {
-        Comparision compare;
-        Conversion conversion;
+       // Comparision compare;
+        private bool result;
+
+        // Quantities quantity;
+        // Conversion conversion;
 
         [SetUp]
         public void Setup()
         {
-            compare = new Comparision();
-            conversion = new Conversion();
+           // compare = new Comparision();
+          //  quantity = new Quantities();
+          //  conversion = new Conversion();
         }
 
         [Test]
@@ -96,28 +100,41 @@ namespace QuantityMeasurement1Test
         [Test]
         public void  given_OneFeetAndTwelveInch_ShouldReturnTrue()
         {
-            bool result = compare.ConvertIntoFeet(1, 12);
+            if ( Quantities.IncheConversion(12.0, "inches") == Quantities.IncheConversion(1.0, "feet"))
+            {
+                result = true;
+            }
+
             Assert.IsTrue(result);
         }
 
         [Test]
         public void given_ZeroFeetAndZeroInch_ShouldReturnTrue()
         {
-            bool result = compare.ConvertIntoFeet(0, 0);
+            if (Quantities.IncheConversion(0.0, "feet") == Quantities.IncheConversion(0.0, "inches"))
+            {
+                result = true;
+            }
             Assert.IsTrue(result);
         }
 
         [Test]
         public void given_OneFeetAndOneInch_ShouldReturnFalse()
         {
-            bool result = compare.ConvertIntoFeet(1, 1);
+            if (Quantities.IncheConversion(1.0, "feet") == Quantities.IncheConversion(1.0, "inches"))
+            {
+                result = true;
+            }
             Assert.IsFalse(result);
         }
 
         [Test]
         public void given_OneFeetAndOneYard_ShouldReturn_False()
         {
-            bool result = compare.ConvertIntoYard(1.0, 1.0);
+            if (Quantities.IncheConversion(1.0, "feet") == Quantities.IncheConversion(1.0, "yards"))
+            {
+                result = true;
+            }
             Assert.IsFalse(result);
 
         }
@@ -125,7 +142,10 @@ namespace QuantityMeasurement1Test
         [Test]
         public void given_ThreeFeetAndOneYard_ShouldReturn_True()
         {
-            bool result = compare.ConvertIntoYard(3.0, 1.0);
+            if (Quantities.IncheConversion(3.0, "feet") == Quantities.IncheConversion(1.0, "yards"))
+            {
+                result = true;
+            }
             Assert.IsTrue(result);
 
         }
@@ -133,8 +153,25 @@ namespace QuantityMeasurement1Test
         [Test]
         public void Given_OneIncheAndOneYard_ShouldReturn_False()
         {
-            bool result = compare.ConvertIntoYard(conversion.ConvertFeetsToInches(1.0), 1.0);
+            if (Quantities.IncheConversion(1.0, "inches") == Quantities.IncheConversion(1.0, "yards"))
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
             Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void Given_ThirtySixIncheAndOneYard_ShouldReturn_True()
+        {
+            if (Quantities.IncheConversion(36.0, "inches") == Quantities.IncheConversion(1.0, "yards"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
         }
 
     }
