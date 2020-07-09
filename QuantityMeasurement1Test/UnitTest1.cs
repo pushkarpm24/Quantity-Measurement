@@ -253,5 +253,15 @@ namespace QuantityMeasurement1Test
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void Given_OneTonesAndThousandKilos_ShuouldReturn_True()
+        {
+            if (Quantities.KilosConversion(1, "tones") == Quantities.KilosConversion(1000, "kg"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
+
     }
 }
