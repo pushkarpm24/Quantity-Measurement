@@ -243,5 +243,15 @@ namespace QuantityMeasurement1Test
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void Given_OneKgAndThousandGrams_ShuouldReturn_True()
+        {
+            if (Quantities.KilosConversion(1, "kg") == Quantities.KilosConversion(1000, "grams"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
+
     }
 }
