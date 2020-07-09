@@ -17,30 +17,30 @@ namespace QuantityMeasurement1Test
         [Test]
         public void givenZeroFeetAndZeroFeet_shouldReturnEqual()
         {
-            Feet feetOne = new Feet(0.0);
-            Feet feetTwo = new Feet(0.0);
+            QuantityInFeet feetOne = new QuantityInFeet(0.0);
+            QuantityInFeet feetTwo = new QuantityInFeet(0.0);
             Assert.IsTrue(feetOne.feet.Equals(feetTwo.feet));
         }
 
         [Test]
         public void givenZeroFeetAndNullValue_shouldReturnNotEqual()
         {
-            Feet value = new Feet();
+            QuantityInFeet value = new QuantityInFeet();
             Assert.IsFalse(value.Equals(null));
         }
 
         [Test]
         public void givenSameFeetRefrence_shouldReturnFalse()
         {
-            Feet feetOne = new Feet();
-            Feet feetTwo = new Feet();
+            QuantityInFeet feetOne = new QuantityInFeet();
+            QuantityInFeet feetTwo = new QuantityInFeet();
             Assert.IsFalse(feetOne.Equals(feetTwo));
         }
 
         [Test]
         public void givenImproper_TypeObject_ShouldReturn_False()
         {
-            Feet valueOne = new Feet();
+            QuantityInFeet valueOne = new QuantityInFeet();
             object valueTwo = new object();
             Assert.IsFalse(valueOne.Equals(valueTwo));
         }
@@ -48,7 +48,7 @@ namespace QuantityMeasurement1Test
         [Test]
         public void givenEqualValue_ShuoldReturn_True()
         {
-            Feet feetOne = new Feet();
+            QuantityInFeet feetOne = new QuantityInFeet();
             feetOne.feet = 4.6;
             Assert.IsTrue(feetOne.Equals(feetOne));
         }
@@ -56,30 +56,30 @@ namespace QuantityMeasurement1Test
         [Test]
         public void givenZeroInchAndZeroInch_shouldReturnEqual()
         {
-            Inches inchOne = new Inches(0.0);
-            Inches inchTwo = new Inches(0.0);
+            QuantityInInches inchOne = new QuantityInInches(0.0);
+            QuantityInInches inchTwo = new QuantityInInches(0.0);
             Assert.IsTrue(inchOne.inches.Equals(inchTwo.inches));
         }
 
         [Test]
         public void givenZeroInchAndNull_shouldReturnNotEqual()
         {
-            Inches inchOne = new Inches();
+            QuantityInInches inchOne = new QuantityInInches();
             Assert.IsFalse(inchOne.Equals(null));
         }
 
         [Test]
         public void givenSameInchRefrence_shouldReturnFalse()
         {
-            Inches inchOne = new Inches();
-            Inches inchTwo = new Inches();
+            QuantityInInches inchOne = new QuantityInInches();
+            QuantityInInches inchTwo = new QuantityInInches();
             Assert.IsFalse(inchOne.Equals(inchTwo));
         }
 
         [Test]
         public void givenSameInch_Value_ShuoldReturn_True()
         {
-            Inches inchOne = new Inches();
+            QuantityInInches inchOne = new QuantityInInches();
             inchOne.inches = 4.6;
             Assert.IsTrue(inchOne.Equals(inchOne));
         }
@@ -87,7 +87,7 @@ namespace QuantityMeasurement1Test
         [Test]
         public void givenImproper_InchesTypeObject_Should_Return_False()
         {
-            Inches valueOne = new Inches();
+            QuantityInInches valueOne = new QuantityInInches();
             object valueTwo = new object();
             Assert.IsFalse(valueOne.Equals(valueTwo));
         }
@@ -178,35 +178,39 @@ namespace QuantityMeasurement1Test
         [Test]
         public void Given_TwoInchAndTwoInch_AfterAdditon_ShouldReturn_FourInch()
         {
-            result = Quantities.Addition(Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(4, "inches"));
+            result = Quantities.Addition(Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(2, "inches"), 
+                Quantities.IncheConversion(4, "inches"));
             Assert.IsTrue(result);
         }
 
         [Test]
         public void Given_OneFeetAndTwoInch_AfterAdditon_ShouldReturn_FourteenInch()
         {
-            result = Quantities.Addition(Quantities.IncheConversion(1, "feet"), Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(14, "inches"));
+            result = Quantities.Addition(Quantities.IncheConversion(1, "feet"), Quantities.IncheConversion(2, "inches"),
+                Quantities.IncheConversion(14, "inches"));
             Assert.IsTrue(result);
         }
 
         [Test]
         public void Given_OneFeetAndOneFeet_AfterAdditon_ShouldReturn_TwentyFourInch()
         {
-            result = Quantities.Addition(Quantities.IncheConversion(1, "feet"), Quantities.IncheConversion(1, "feet"), Quantities.IncheConversion(24, "inches"));
+            result = Quantities.Addition(Quantities.IncheConversion(1, "feet"), Quantities.IncheConversion(1, "feet"), 
+                Quantities.IncheConversion(24, "inches"));
             Assert.IsTrue(result);
         }
 
         [Test]
         public void Given_TwoInchAndTwoPointFiveCM_AfterAdditon_ShouldReturn_ThreeInch()
         {
-            result = Quantities.Addition(Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(2.5, "cm"), Quantities.IncheConversion(3, "inches"));
+            result = Quantities.Addition(Quantities.IncheConversion(2, "inches"), Quantities.IncheConversion(2.5, "cm"), 
+                Quantities.IncheConversion(3, "inches"));
             Assert.IsTrue(result);
         }
 
         [Test]
         public void Given_OneGallonAndThreePointSevenEightLiter_AfterCompare_ShuouldReturnTrue()
         {
-            if (Quantities.LiterConversion(1, "gallon") == Quantities.LiterConversion(3.785, "liter"))
+            if (Quantities.LiterConversion(1.0, "gallon") == Quantities.LiterConversion(3.785, "liter"))
             {
                 result = true;
             }
@@ -223,7 +227,21 @@ namespace QuantityMeasurement1Test
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void Given_OneGallonAndThreePointSevenEightLiters_AfterAdditon_ShouldReturn_SevenPointFiveSevenLiters()
+        {
+            result = Quantities.Addition(Quantities.LiterConversion(1.0, "gallon"), Quantities.LiterConversion(3.785, "litre"),
+                Quantities.LiterConversion(7.57, "litre"));
+            Assert.IsTrue(result);
+        }
 
+        [Test]
+        public void Given_OneLitterAndThousandMl_AfterAdditon_ShouldReturn_TwoLitre()
+        {
+            result = Quantities.Addition(Quantities.LiterConversion(1, "litre"), Quantities.LiterConversion(1000, "ml"),
+                Quantities.LiterConversion(2, "litre"));
+            Assert.IsTrue(result);
+        }
 
     }
 }

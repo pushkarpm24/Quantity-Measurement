@@ -4,16 +4,17 @@ using System.Text;
 
 namespace QuantityMeasurement1
 {
-    public class Inches
+    public class QuantityInFeet
     {
-        public double inches;
-        public Inches()
+        public double feet;
+
+        public QuantityInFeet()
         {
         }
 
-        public Inches(double inches)
+        public QuantityInFeet(double feet)
         {
-            this.inches = inches;
+            this.feet = feet;
         }
 
         public override bool Equals(object obj)
@@ -21,7 +22,7 @@ namespace QuantityMeasurement1
             if (obj == null) return false;
             if (!(obj == this)) return false;
             if (!(obj.GetType() == this.GetType())) return false;
-            return (((Inches)obj).inches == this.inches);
+            return (((QuantityInFeet)obj).feet == this.feet);
         }
     }
 }

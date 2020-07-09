@@ -26,9 +26,9 @@ namespace QuantityMeasurement1
                         throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.DIFFERENT_VALUE);
                 }
             }
-            catch (QuantityMeasurementException)
+            catch (Exception)
             {
-                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_EXCEPTION);
+                throw new Exception();
             }            
 
         }
@@ -51,9 +51,9 @@ namespace QuantityMeasurement1
                         throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.DIFFERENT_VALUE);
                 }
             }
-            catch (QuantityMeasurementException)
+            catch (Exception)
             {
-                throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_EXCEPTION);
+                throw new Exception();
             }
         }
         
