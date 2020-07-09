@@ -263,5 +263,13 @@ namespace QuantityMeasurement1Test
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void Given_OneToneAndThousandGrams_AfterAdditon_ShouldReturn_ThousandAndOneKilo()
+        {
+            result = Quantities.Addition(Quantities.KilosConversion(1, "tones"), 
+                Quantities.KilosConversion(1000, "grams"), Quantities.KilosConversion(1001, "kg"));
+            Assert.IsTrue(result);
+        }
+
     }
 }
