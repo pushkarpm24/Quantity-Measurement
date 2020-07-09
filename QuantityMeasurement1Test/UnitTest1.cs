@@ -228,12 +228,13 @@ namespace QuantityMeasurement1Test
         }
 
         [Test]
-        public void Given_OneGallonAndThreePointSevenEightLiters_AfterAdditon_ShouldReturn_SevenPointFiveSevenLiters()
+        public void GivenOneGallon_And_ThreePointSevenEightlitre_AfterAdditon_ShouldReturn_SevenPointFiveSevenlitre()
         {
-            result = Quantities.Addition(Quantities.LiterConversion(1.0, "gallon"), Quantities.LiterConversion(3.785, "litre"),
+            result = Quantities.Addition(Quantities.LiterConversion(1.0, "gallon"), Quantities.LiterConversion(3.785, "litre"), 
                 Quantities.LiterConversion(7.57, "litre"));
             Assert.IsTrue(result);
         }
+    
 
         [Test]
         public void Given_OneLitterAndThousandMl_AfterAdditon_ShouldReturn_TwoLitre()
@@ -268,6 +269,16 @@ namespace QuantityMeasurement1Test
         {
             result = Quantities.Addition(Quantities.KilosConversion(1, "tones"), 
                 Quantities.KilosConversion(1000, "grams"), Quantities.KilosConversion(1001, "kg"));
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void GivenTwoHundradeTwelveF_And_HundradeC_AfterCompare_ShuouldReturn_True()
+        {
+            if (Quantities.TempratureConversion(212, "F") == Quantities.TempratureConversion(100, "C"))
+            {
+                result = true;
+            }
             Assert.IsTrue(result);
         }
 

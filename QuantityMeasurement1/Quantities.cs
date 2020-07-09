@@ -40,13 +40,14 @@ namespace QuantityMeasurement1
                 switch (unit)
                 {
                     case null:
-                        throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_EXCEPTION);                   
+                        throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_EXCEPTION);
+                    case "litre":
+                        return value;
                     case "gallon":
                         return value * 3.785;
                     case "ml":
                         return value / 1000;
-                    case "litre":
-                        return value;
+                   
                     default:
                         throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.DIFFERENT_VALUE);
                 }
@@ -72,6 +73,28 @@ namespace QuantityMeasurement1
                         return value / 1000;
                     case "tones":
                         return value * 1000;
+                    default:
+                        throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.DIFFERENT_VALUE);
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
+        public static double TempratureConversion(double value, string unit)
+        {
+            try
+            {
+                switch (unit)
+                {
+                    case null:
+                        throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_EXCEPTION);
+                    case "F":
+                        return (value - 32) * 5 / 9;
+                    case "C":
+                        return value;
                     default:
                         throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.DIFFERENT_VALUE);
                 }
